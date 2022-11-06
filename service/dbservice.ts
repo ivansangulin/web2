@@ -11,12 +11,13 @@ export default class Dbservice {
     }
     async login(username,password) {
         try {
+            const port:number = (parseInt(process.env.PGPORT));
             const client = new Client({
                 user: process.env.PGUSER,
                 host: process.env.PGHOST,
                 database: process.env.PGDATABASE,
                 password: process.env.PGPASSWORD,
-                port: process.env.PGPORT,
+                port: port,
                 ssl : true
             })
             await client.connect();
@@ -44,12 +45,13 @@ export default class Dbservice {
 
     async searchnameinjection(username) {
         try {
+            const port:number = (parseInt(process.env.PGPORT));
             const client = new Client({
                 user: process.env.PGUSER,
                 host: process.env.PGHOST,
                 database: process.env.PGDATABASE,
                 password: process.env.PGPASSWORD,
-                port: process.env.PGPORT,
+                port: port,
                 ssl: true
             })
             await client.connect();
@@ -67,12 +69,13 @@ export default class Dbservice {
 
     async searchname(username) {
         try {
+            const port:number = (parseInt(process.env.PGPORT));
             const client = new Client({
                 user: process.env.PGUSER,
                 host: process.env.PGHOST,
                 database: process.env.PGDATABASE,
                 password: process.env.PGPASSWORD,
-                port: process.env.PGPORT,
+                port: port,
                 ssl : true
             })
             await client.connect();

@@ -6,12 +6,13 @@ dotenv.config();
 const connectdb = async () => {
     console.log("connecting..")
     try {
+        const port:number = (parseInt(process.env.PGPORT));
         const client = new Client({
             user: process.env.PGUSER,
             host: process.env.PGHOST,
             database: process.env.PGDATABASE,
             password: process.env.PGPASSWORD,
-            port: process.env.PGPORT,
+            port: port,
             ssl : true
         })
         await client.connect();

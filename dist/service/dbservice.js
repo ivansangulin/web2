@@ -18,12 +18,14 @@ export default class Dbservice {
     login(username, password) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
+                const port = (parseInt(process.env.PGPORT));
                 const client = new Client({
                     user: process.env.PGUSER,
                     host: process.env.PGHOST,
                     database: process.env.PGDATABASE,
                     password: process.env.PGPASSWORD,
-                    port: process.env.PGPORT
+                    port: port,
+                    ssl: true
                 });
                 yield client.connect();
                 const data = yield (yield client.query("select * from users where username = $1", [username.trim()])).rows[0];
@@ -54,12 +56,14 @@ export default class Dbservice {
     searchnameinjection(username) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
+                const port = (parseInt(process.env.PGPORT));
                 const client = new Client({
                     user: process.env.PGUSER,
                     host: process.env.PGHOST,
                     database: process.env.PGDATABASE,
                     password: process.env.PGPASSWORD,
-                    port: process.env.PGPORT
+                    port: port,
+                    ssl: true
                 });
                 yield client.connect();
                 const data = yield (yield client.query("select username from users where username = \'" + username.trim() + "\'")).rows;
@@ -79,12 +83,13 @@ export default class Dbservice {
     searchname(username) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
+                const port = (parseInt(process.env.PGPORT));
                 const client = new Client({
                     user: process.env.PGUSER,
                     host: process.env.PGHOST,
                     database: process.env.PGDATABASE,
                     password: process.env.PGPASSWORD,
-                    port: process.env.PGPORT,
+                    port: port,
                     ssl: true
                 });
                 yield client.connect();

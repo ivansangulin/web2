@@ -1,7 +1,8 @@
 import express from 'express';
 import bodyParser from "body-parser";
 const app = express();
-const port = 3000;
+const externalUrl = process.env.RENDER_EXTERNAL_URL;
+const port = externalUrl && process.env.PORT ? parseInt(process.env.PORT) : 3000;
 import * as loginroute from './routes/login.js';
 import * as searchnameroute from './routes/searchname.js';
 import * as adminroute from './routes/admin.js';
