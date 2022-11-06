@@ -17,7 +17,7 @@ export default class Dbservice {
                 database: process.env.PGDATABASE,
                 password: process.env.PGPASSWORD,
                 port: process.env.PGPORT,
-                ssl : true;
+                ssl : true
             })
             await client.connect();
             const data = await (await client.query("select * from users where username = $1", [username.trim()])).rows[0];
