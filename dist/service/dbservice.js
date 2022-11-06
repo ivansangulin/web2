@@ -7,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import pkg from 'pg';
 const { Client } = pkg;
 import dotenv from 'dotenv';
